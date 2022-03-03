@@ -1,0 +1,10 @@
+.show-button {
+  font-size: 10px;
+  cursor: pointer;
+  color: gray;
+}
+
+.show-button:hover {
+  color: rgb(40, 130, 209) !important;
+  font-weight: 500;
+}

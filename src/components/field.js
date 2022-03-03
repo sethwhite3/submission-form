@@ -1,5 +1,7 @@
+import { useState } from "react";
+
 export const Field = (props) => {
-  const { label, type, required } = props;
+  const { label, type, required, stateChanger, value } = props;
 
   return (
     <label className="d-flex flex-column mb-3">
@@ -12,6 +14,8 @@ export const Field = (props) => {
         required={required}
         type={type}
         name={label}
+        value={value}
+        onChange={(e) => stateChanger(e.target.value)}
       />
     </label>
   );
