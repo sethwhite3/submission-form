@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getUsers } from "../firebase/fb.api";
 import { Table } from "./table";
 
-export const List = () => {
+export const List = ({ isSaving }) => {
   const [data, setData] = useState([]);
   const [dataLoaded, setDataLoaded] = useState(false);
 
@@ -11,7 +11,7 @@ export const List = () => {
       setData(response);
       setDataLoaded(true);
     });
-  }, []);
+  }, [isSaving]);
   return (
     <div className="col-12 col-sm-4 col-lg-3 m-auto mt-3">
       {!dataLoaded && (

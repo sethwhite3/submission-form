@@ -5,11 +5,9 @@ import { createUser } from "../firebase/fb.api";
 import { send } from "emailjs-com";
 import swal from "sweetalert";
 
-export const Form = ({ showList, setShowList }) => {
+export const Form = ({ showList, setShowList, isSaving, setIsSaving }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-
-  const [isSaving, setIsSaving] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
