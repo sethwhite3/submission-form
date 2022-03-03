@@ -9,16 +9,17 @@ export const Form = ({ showList, setShowList }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
+  const [isSaving, setIsSaving] = useState(false);
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    setIsSaving(true);
     const user = {
       name: name,
       email: email,
     };
     createUser(user);
     sendEmail(user);
-    setName("");
-    setEmail("");
   };
 
   function sendEmail(user) {
@@ -30,6 +31,10 @@ export const Form = ({ showList, setShowList }) => {
           icon: "success",
           button: "Aww yiss!",
         });
+
+        setName("");
+        setEmail("");
+        setIsSaving(false);
       })
       .catch((err) => {
         console.log("FAILED...", err);
@@ -57,7 +62,7 @@ export const Form = ({ showList, setShowList }) => {
           stateChanger={setEmail}
           value={email}
         />
-        <Button value={"submit"} type={"submit"} />
+        <Button isSaving={isSaving} value={"submit"} type={"submit"} />
       </form>
       <div className="text-center mt-2">
         <span className="show-button" onClick={() => setShowList(!showList)}>
