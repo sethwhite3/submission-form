@@ -45,7 +45,7 @@ export const Form = ({ showList, setShowList, isSaving, setIsSaving }) => {
         onSubmit={handleSubmit}
         className="d-flex flex-column shadow-sm p-4 w-100 rounded"
       >
-        <span className="text-center mb-3 fs-5">Submission Form</span>
+        <span className="text-center mb-3 fs-5">Contact Form</span>
         <Field
           label={"name"}
           type={"text"}
